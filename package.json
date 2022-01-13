@@ -1,0 +1,17 @@
+{
+  "name": "node.js-meme-scraper",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "index.js",
+  "repository": "https://github.com/stevelaschan/node.js-meme-scraper.git",
+  "author": "Stefan Laschan <st.laschan@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.24.0",
+    "cheerio": "^1.0.0-rc.10",
+    "fs": "^0.0.1-security",
+    "http": "^0.0.1-security",
+    "node-fetch": "^3.1.0",
+    "request": "^2.88.2"
+  }
+}
