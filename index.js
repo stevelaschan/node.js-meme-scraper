@@ -4,10 +4,10 @@ import cheerio from 'cheerio';
 import fs from 'fs';
 import request from 'request';
 
-// basis Website
+// Basis Website
 const baseUrl = 'https://memegen-link-examples-upleveled.netlify.app/';
 
-// find the image URLs from the website
+// Get URls from the Website
 async function getLinksFromURL(url) {
   try {
     let links = [];
@@ -21,7 +21,6 @@ async function getLinksFromURL(url) {
         $(element).attr('src'), // get the img src attribute
       );
     });
-
     return links;
   } catch (e) {
     console.log(e);
@@ -30,7 +29,7 @@ async function getLinksFromURL(url) {
 
 let homePageLinks = await getLinksFromURL(baseUrl);
 
-// download the meme images
+// Download meme images
 const download = (tenImgURLs, path, callback) => {
   request.head(tenImgURLs, (err, res, body) => {
     request(tenImgURLs).pipe(fs.createWriteStream(path)).on('close', callback);
@@ -42,7 +41,7 @@ let path = ''; // variable for the meme path
 for (let i = 0; i < 10; i++) {
   tenImgURLs = homePageLinks[i];
   path = `./memes/0${i + 1}.jpg`;
-  download(tenImgURLs, path, () => {});
+  download(tenImgURLs, path, () => {}); //downloading 10 memes
 }
 
-console.log('✅ Done!');
+console.log('Download completed!');
