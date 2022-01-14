@@ -31,6 +31,7 @@ let homePageLinks = await getLinksFromURL(baseUrl);
 let tenImgURLs = []; // variable for the first ten images
 for (let i = 0; i < 10; i++) {
   tenImgURLs = homePageLinks[i]; // log the first ten images to the consol
+  // console.log(tenImgURLs);
 }
 
 // save the images to the folderpath memes
@@ -40,12 +41,12 @@ const download = (tenImgURLs, path, callback) => {
   });
 };
 
-// const url = tenImgURLs;
 let path = '';
 for (let j = 1; j < 11; j++) {
   path = `0${j}.jpg`;
+  // console.log(path);
 }
-for (let k = 0; k < 10; k++)
-  download(tenImgURLs[k], path[k], () => {
-    console.log('✅ Done!');
-  });
+
+download(tenImgURLs, path, () => {
+  console.log('✅ Done!');
+});
