@@ -1,4 +1,4 @@
-// import packages
+// Import packages
 import axios from 'axios';
 import cheerio from 'cheerio';
 import fs from 'fs';
@@ -7,7 +7,7 @@ import request from 'request';
 // Basis Website
 const baseUrl = 'https://memegen-link-examples-upleveled.netlify.app/';
 
-// Get URls from the Website
+// Get URls from the meme website
 async function getLinksFromURL(url) {
   try {
     let links = [];
@@ -27,16 +27,15 @@ async function getLinksFromURL(url) {
   }
 }
 
-let homePageLinks = await getLinksFromURL(baseUrl);
-
-// Download meme images
+// Download meme images and save under file "memes"
 const download = (tenImgURLs, path, callback) => {
   request.head(tenImgURLs, (err, res, body) => {
     request(tenImgURLs).pipe(fs.createWriteStream(path)).on('close', callback);
   });
 };
 
-let tenImgURLs = []; // variable for the first ten images
+let homePageLinks = await getLinksFromURL(baseUrl); // variable for called URLs from meme website
+let tenImgURLs = []; // variable for the first ten meme images
 let path = ''; // variable for the meme path
 for (let i = 0; i < 10; i++) {
   tenImgURLs = homePageLinks[i];
