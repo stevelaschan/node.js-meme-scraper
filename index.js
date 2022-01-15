@@ -1,7 +1,7 @@
 // Import packages
+import fs from 'node:fs';
 import axios from 'axios';
 import cheerio from 'cheerio';
-import fs from 'fs';
 import request from 'request';
 
 // Basis Website
