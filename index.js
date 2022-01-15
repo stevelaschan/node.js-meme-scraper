@@ -29,7 +29,7 @@ async function getLinksFromURL(url) {
 
 // Download meme images and save under file "memes"
 const download = (tenImgURLs, path, callback) => {
-  request.head(tenImgURLs, (err, res, body) => {
+  request.head(tenImgURLs, () => {
     request(tenImgURLs).pipe(fs.createWriteStream(path)).on('close', callback);
   });
 };
