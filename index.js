@@ -31,7 +31,7 @@ async function getLinksFromURL(url) {
 const homePageLinks = await getLinksFromURL(baseUrl); // variable for called URLs from meme website
 let imgUrl = []; // variable for the first ten meme images
 let path = ''; // variable for the meme path
-const download = (imgUrl, path) => {
+const download = () => {
   request(imgUrl).pipe(fs.createWriteStream(path));
 };
 
