@@ -16,7 +16,7 @@ async function getLinksFromURL(url) {
     const $ = cheerio.load(httpResponse.data);
     const linkObjects = $('img'); // get all hyperlinks
 
-    linkObjects.each((element) => {
+    linkObjects.each((options, element) => {
       links.push(
         $(element).attr('src'), // get the img src attribute
       );
