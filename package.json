@@ -9,7 +9,8 @@
   "dependencies": {
     "axios": "^0.24.0",
     "cheerio": "^1.0.0-rc.10",
-    "fs": "^0.0.1-security"
+    "fs": "^0.0.1-security",
+    "request": "^2.88.2"
   },
   "devDependencies": {
     "@babel/eslint-parser": "7.16.5",
