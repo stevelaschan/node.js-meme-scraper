@@ -2,7 +2,6 @@
 import fs from 'node:fs';
 import axios from 'axios';
 import cheerio from 'cheerio';
-import request from 'request';
 
 // Basis Website
 const baseUrl = 'https://memegen-link-examples-upleveled.netlify.app/';
@@ -32,7 +31,7 @@ const homePageLinks = await getLinksFromURL(baseUrl); // variable for called URL
 let imgUrl = []; // variable for the first ten meme images
 let path = ''; // variable for the meme path
 const download = () => {
-  request(imgUrl).pipe(fs.createWriteStream(path));
+  fs.createWriteStream(path);
 };
 
 for (let i = 0; i < 10; i++) {

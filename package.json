@@ -8,9 +8,8 @@
   "license": "MIT",
   "dependencies": {
     "axios": "^0.24.0",
-    "fs": "^0.0.1-security",
     "cheerio": "^1.0.0-rc.10",
-    "request": "^2.88.2"
+    "fs": "^0.0.1-security"
   },
   "devDependencies": {
     "@babel/eslint-parser": "7.16.5",
