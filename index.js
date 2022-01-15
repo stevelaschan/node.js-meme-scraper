@@ -28,17 +28,17 @@ async function getLinksFromURL(url) {
 }
 
 // Download meme images and save under file "memes"
-const download = (tenImgURLs, path) => {
-  request(tenImgURLs).pipe(fs.createWriteStream(path));
+const homePageLinks = await getLinksFromURL(baseUrl); // variable for called URLs from meme website
+let imgUrl = []; // variable for the first ten meme images
+let path = ''; // variable for the meme path
+const download = (imgUrl, path) => {
+  request(imgUrl).pipe(fs.createWriteStream(path));
 };
 
-const homePageLinks = await getLinksFromURL(baseUrl); // variable for called URLs from meme website
-let tenImgURLs = []; // variable for the first ten meme images
-let path = ''; // variable for the meme path
 for (let i = 0; i < 10; i++) {
-  tenImgURLs = homePageLinks[i];
+  imgUrl = homePageLinks[i];
   path = `./memes/0${i + 1}.jpg`;
-  download(tenImgURLs, path, () => {}); // downloading 10 memes
+  download(imgUrl, path, () => {}); // downloading 10 memes
 }
 
 console.log('Download completed!');
